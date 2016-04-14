@@ -14,7 +14,7 @@ layer {
 
   image_data_param {
     source: "examples/nih_pirc_siamese/data/train1.txt"
-    batch_size: 1
+    batch_size: 100
   }
 }
 
@@ -32,7 +32,7 @@ layer {
   }
   image_data_param {
     source: "examples/nih_pirc_siamese/data/train2.txt"
-    batch_size: 1
+    batch_size: 100
   }
 }
 
@@ -50,7 +50,7 @@ layer {
   }
   image_data_param {
     source: "examples/nih_pirc_siamese/data/test1.txt"
-    batch_size: 1
+    batch_size: 100
   }
 }
 
@@ -68,7 +68,7 @@ layer {
   }
   image_data_param {
     source: "examples/nih_pirc_siamese/data/test2.txt"
-    batch_size: 1
+    batch_size: 100
   }
 }
 layer {

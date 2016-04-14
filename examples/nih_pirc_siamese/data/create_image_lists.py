@@ -5,22 +5,22 @@ from random import shuffle, randint
 TRAIN_PERCENTAGE = 0.7 # the rest is test
 
 # change to match platform
-ABSOLUTE_PATH = '/home/adam/caffe/examples/nih_pirc_siamese/data/'
+ABSOLUTE_PATH = '/work/04002/aa67857/caffe/examples/nih_pirc_siamese/data/'
 
 # these folders are in ABSOLUTE_PATH. The ground truth table lists ref images first, then consumer images
 REF_PATH = 'dr/'
 CONSUMER_PATH = 'dc/'
 
-TRAIN_1_PATH = 'train1.txt'
-TRAIN_2_PATH = 'train2.txt'
-TEST_1_PATH = 'test1.txt'
-TEST_2_PATH = 'test2.txt'
+TRAIN_1_PATH = ABSOLUTE_PATH + 'train1.txt'
+TRAIN_2_PATH = ABSOLUTE_PATH + 'train2.txt'
+TEST_1_PATH =  ABSOLUTE_PATH + 'test1.txt'
+TEST_2_PATH =  ABSOLUTE_PATH + 'test2.txt'
 
 def main():
 
 	ground_truth = []
 
-	with open('groundTruthTable.csv', 'rb') as csvfile:
+	with open(ABSOLUTE_PATH + 'groundTruthTable.csv', 'rb') as csvfile:
 		csvreader = csv.reader(csvfile)
 		ground_truth = list(csvreader)[1:] # skip the first line
 

@@ -1,0 +1,35 @@
+
+
+META========================================================
+Taking 100 images at random, 64% had text, 50% had discrinimative text
+Random MAP would be 1/1 * 1/2 * (1/1000 + 2/1000) = 0.0015.
+
+COMMANDS========================================================
+
+cd ../nih_pirc_siamese
+python test_nih_pirc_siamese.py nih_pirc_siamese_deploy.prototxt nih_pirc_siamese_iter_18000.caffemodel output.csv data/dc.txt data/dr1.txt data/dr2.txt
+cd ../nih_pirc_eval
+./calculate_map.py ../nih_pirc_siamese/data/groundTruthTableN.csv ../nih_pirc_siamese/output.csv
+
+RESULTS=========================================================
+
+MNIST SIAMESE, FULL IMAGES SQUASHED TO 227x227, 18k iterations
+The ground truth table is for 5000 objects.
+The input matrix is for 5000 objects.
+
+Iter:18000,MAP:0.00490075030954,data:all
+the best precision was on image 4275.jpg, which had a score of 0.50054377379.
+following are the top 10 matches for this image.
+[('00002-3228-30_PART_1_OF_1_CHAL10_SB_391E1C80.jpg', 1), ('00173-0595-00_PART_1_OF_1_CHAL10_SB_10230838.jpg', 2), ('00093-4404-01_PART_1_OF_1_CHAL10_SB_372D1BD8.jpg', 3), ('00781-5191-01_PART_1_OF_1_CHAL10_SB_CD20E6B7.jpg', 4), ('00093-0536-01_PART_1_OF_1_CHAL10_SB_992B4CEA.jpg', 5), ('00555-0139-09_PART_1_OF_1_CHAL10_SB_EE2B774B.jpg', 6), ('00591-3202-01_PART_1_OF_1_CHAL10_SF_C11FE0FF.jpg', 7), ('00093-2274-34_PART_1_OF_1_CHAL10_SF_022D814C.jpg', 8), ('00093-7327-01_PART_1_OF_1_CHAL10_SF_B02D580A.jpg', 9), ('53489-0146-01_PART_1_OF_1_CHAL10_SF_8021C06E.jpg', 10)]
+
+Iter:10000,MAP:0.00473318952768,data:all
+the best precision was on image 4275.jpg, which had a score of 0.500545553737.
+following are the top 10 matches for this image.
+[('00002-3228-30_PART_1_OF_1_CHAL10_SB_391E1C80.jpg', 1), ('00173-0595-00_PART_1_OF_1_CHAL10_SB_10230838.jpg', 2), ('00074-3290-13_PART_1_OF_1_CHAL10_SF_EC1D766B.jpg', 3), ('00378-0505-01_PART_1_OF_1_CHAL10_SF_652332F9.jpg', 4), ('00781-5191-01_PART_1_OF_1_CHAL10_SB_CD20E6B7.jpg', 5), ('00093-4404-01_PART_1_OF_1_CHAL10_SB_372D1BD8.jpg', 6), ('67767-0133-60_PART_1_OF_1_CHAL10_SF_26269354.jpg', 7), ('00172-5032-60_PART_1_OF_1_CHAL10_SF_002D0078.jpg', 8), ('00093-7327-01_PART_1_OF_1_CHAL10_SF_B02D580A.jpg', 9), ('53489-0146-01_PART_1_OF_1_CHAL10_SF_8021C06E.jpg', 10)]
+
+
+
+Iter:18000,MAP:0.00465298036852,data:test set only
+the best precision was on image 3598.jpg, which had a score of 0.535714285714.
+following are the top 10 matches for this image.
+[('00002-3228-30_PART_1_OF_1_CHAL10_SB_391E1C80.jpg', 1), ('00173-0595-00_PART_1_OF_1_CHAL10_SB_10230838.jpg', 2), ('00093-5768-56_PART_1_OF_1_CHAL10_SB_7A1C3D41.jpg', 3), ('50111-0397-01_PART_1_OF_1_CHAL10_SF_30269804.jpg', 4), ('00093-3109-53_PART_1_OF_1_CHAL10_SB_C819644B.jpg', 5), ('00591-5788-01_PART_1_OF_1_CHAL10_SB_C51FE2DF.jpg', 6), ('00093-7466-98_PART_1_OF_1_CHAL10_SB_A51DD2AE.jpg', 7), ('59762-5021-01_PART_1_OF_1_CHAL10_SB_19230CB8.jpg', 8), ('59762-2004-01_PART_1_OF_1_CHAL10_SB_E61DF31F.jpg', 9), ('00093-7426-56_PART_1_OF_1_CHAL10_SB_DC27EE6F.jpg', 10)]

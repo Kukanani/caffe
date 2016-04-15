@@ -1,6 +1,6 @@
 name: "nih_pirc_siamese_deploy"
 input: "data"
-input_dim: 1001
+input_dim: 1000
 input_dim: 3
 input_dim: 227
 input_dim: 227

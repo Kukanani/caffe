@@ -1,6 +1,6 @@
-EXAMPLE=examples/nih_pirc_siamese/data
+EXAMPLE=.
 
-for file in $EXAMPLE/dr/*
+for file in $EXAMPLE/dr_ss/*
 do
 	if [ ! -d "$file" ]
 		then
@@ -8,7 +8,7 @@ do
 		convert $file -resize 227x227! $file;
 	fi
 done
-for file in $EXAMPLE/dc/*
+for file in $EXAMPLE/dc_ss/*
 do
 	if [ ! -d "$file" ]
 		then

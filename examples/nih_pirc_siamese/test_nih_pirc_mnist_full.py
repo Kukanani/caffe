@@ -65,6 +65,8 @@ for list_file_path in list_file_paths:
 		 input_data.append(transformer.preprocess('data', input_imgs[i]))
 	
 	input_data_np = np.array(input_data)
+        net.blobs['data'].reshape(len(input_imgs), 3, 227, 227)
+	net.reshape()
 	net.blobs['data'].data[...] = input_data_np
 	output = net.forward()
 	result.extend(output['feat'])

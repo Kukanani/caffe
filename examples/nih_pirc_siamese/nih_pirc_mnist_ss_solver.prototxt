@@ -1,5 +1,5 @@
 # The train/test net protocol buffer definition
-net: "examples/nih_pirc_siamese/nih_pirc_mnist_ss_train_test.prototxt"
+net: "nih_pirc_mnist_ss_train_test.prototxt"
 # test_iter specifies how many forward passes the test should carry out.
 # 3000 pairs in the test set, the batch size is 30, so 100 iters does all 3000
 test_iter: 30
@@ -19,6 +19,6 @@ display: 100
 max_iter: 20000
 # snapshot intermediate results
 snapshot: 2000
-snapshot_prefix: "examples/nih_pirc_siamese/mnist_ss/mnist_ss"
+snapshot_prefix: "mnist_ss/mnist_ss"
 # solver mode: CPU or GPU
 solver_mode: GPU

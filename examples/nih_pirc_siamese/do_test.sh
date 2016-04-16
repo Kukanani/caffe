@@ -1,1 +1,0 @@
-python test_nih_pirc_siamese.py nih_pirc_siamese_deploy.prototxt nih_pirc_siamese_iter_18000.caffemodel half_dr.txt

@@ -5,7 +5,7 @@ from random import shuffle, randint
 TRAIN_PERCENTAGE = 0.7 # the rest is test
 
 # change to match platform
-ABSOLUTE_PATH = '/work/04002/aa67857/caffe/examples/nih_pirc_siamese/data/'
+ABSOLUTE_PATH = '/work/04002/aa67857/caffe/pirc/data/'
 
 # these folders are in ABSOLUTE_PATH. The ground truth table lists ref images first, then consumer images
 REF_PATH = 'dr/'

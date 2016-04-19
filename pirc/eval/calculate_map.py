@@ -44,7 +44,7 @@ def load_matrix(file_path):
 		#print 'cols: '
 		#print cols
 		for row in thereader:
-			consumer_image = row[0]
+			consumer_image = row[0].split(' ')[0]
 			if consumer_image not in sparse:
 				sparse[consumer_image] = {}
 			for idx,value in enumerate(row[1:]):
@@ -61,7 +61,8 @@ def calculate_map(ground_truth, input_matrix):
 	best_contrib_index = 0
 
 	# loop over the entire input matrix
-	for cq,row in input_matrix.iteritems():
+	for cq_raw,row in input_matrix.iteritems():
+		cq = cq_raw.split(' ')[0]
 		# find the ranks that the input assigned for the correct reference images
 		match_1 = ground_truth[cq][0]
 		match_2 = ground_truth[cq][1]

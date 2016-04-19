@@ -44,6 +44,7 @@ transformer.set_transpose('data', (2,1,0))
 
 for list_file_path in list_file_paths:
 	input_imgs = []
+	input_img_names = []
 	print 'processing reference file ' + list_file_path
 	# read the image paths from the file
 	list_file = open(list_file_path, 'r')
@@ -54,16 +55,19 @@ for list_file_path in list_file_paths:
 		# of size N x 3 x 227 x 227. This is N images with 3 channels (RGB) that
 		# are 227x227 pixels
 	        tokens = line.split(' ')
-		img = misc.imread(tokens[0])
-		img = misc.imresize(img, (227, 227))
-		input_imgs.append(img)
-		#labels.append(int(tokens[1]))
-		rank_matrix[0].append(tokens[0].split('/')[-1])
+		if tokens[1] == '1' and tokens[0] not in input_img_names:
+			input_img_names.append(tokens[0])
+			img = misc.imread(tokens[0])
+			img = misc.imresize(img, (227, 227))
+			input_imgs.append(img)
+			#labels.append(int(tokens[1]))
+			rank_matrix[0].append(tokens[0].split('/')[-1])
 	
 	input_data = []
 	for i in range(len(input_imgs)):
 		 input_data.append(transformer.preprocess('data', input_imgs[i]))
 	
+	print 'found {} images'.format(len(input_imgs))
 	input_data_np = np.array(input_data)
         net.blobs['data'].reshape(len(input_imgs), 3, 227, 227)
 	net.reshape()
@@ -97,41 +101,43 @@ input_file = open(input_file_path, 'r')
 input_file_lines = input_file.read().splitlines()
 for input_item in input_file_lines:
 	print 'processing input image ' + input_item
-	img = misc.imread(input_item)
-	img = misc.imresize(img, (227, 227))
+	tokens = input_item.split(' ')
+	if tokens[1] == '1':
+		img = misc.imread(tokens[0])
+		img = misc.imresize(img, (227, 227))
 	
-	input_data = transformer.preprocess('data', img)
+		input_data = transformer.preprocess('data', img)
 	
-	input_data_np = np.array(input_data)
-	net.blobs['data'].data[...] = input_data_np
-	output = net.forward()
-	input_result = output['feat']
+		input_data_np = np.array(input_data)
+		net.blobs['data'].data[...] = input_data_np
+		output = net.forward()
+		input_result = output['feat']
 
-	x_list_single = [x for [x,y] in input_result]
-	y_list_single = [y for [x,y] in input_result]
-	#plt.plot(x_list_single, y_list_single, '.',c=colors[1])
-	#legend.append('36.jpg')
+		x_list_single = [x for [x,y] in input_result]
+		y_list_single = [y for [x,y] in input_result]
+		#plt.plot(x_list_single, y_list_single, '.',c=colors[1])
+		#legend.append('36.jpg')
 	
-	#plt.legend(legend)
-	#plt.grid()
+		#plt.legend(legend)
+		#plt.grid()
 
-	# find the distances
+		# find the distances
 	
-	x_list = [x - x_list_single[0] for [x,y] in result]
-	y_list = [y - y_list_single[0] for [x,y] in result]
-	#print x_list
-	distances = [np.sqrt(x_list[i]**2+y_list[i]**2) for i,x in enumerate(x_list)]
-	#sorted_distances = sorted(distances,key=lambda x: x[0])
-	
-	# calculate ranking
-	dist_array = np.array(distances)
-	temp = dist_array.argsort()
-	ranks = np.empty(len(dist_array),int)
-	ranks[temp] = np.add(np.arange(len(dist_array)), 1).tolist()
-	ranks = ranks.tolist()
-	ranks.insert(0,input_item.split('/')[-1])
-	#print sorted_distances[1:10]
-	rank_matrix.append(ranks)
+		x_list = [x - x_list_single[0] for [x,y] in result]
+		y_list = [y - y_list_single[0] for [x,y] in result]
+		#print x_list
+		distances = [np.sqrt(x_list[i]**2+y_list[i]**2) for i,x in enumerate(x_list)]
+		#sorted_distances = sorted(distances,key=lambda x: x[0])
+		
+		# calculate ranking
+		dist_array = np.array(distances)
+		temp = dist_array.argsort()
+		ranks = np.empty(len(dist_array),int)
+		ranks[temp] = np.add(np.arange(len(dist_array)), 1).tolist()
+		ranks = ranks.tolist()
+		ranks.insert(0,input_item.split('/')[-1])
+		#print sorted_distances[1:10]
+		rank_matrix.append(ranks)
 
 with open(output_path, 'wb') as csvfile:
 	thewriter = csv.writer(csvfile)

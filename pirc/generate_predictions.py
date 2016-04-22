@@ -122,10 +122,8 @@ for input_item in input_file_lines:
 		#plt.grid()
 
 		# find the distances
-		x_list = [x - input_result[0][0] for [x,y] in result]
-		y_list = [y - input_result[0][1] for [x,y] in result]
-		distances = [np.sqrt(x_list[i]**2+y_list[i]**2) for i,x in enumerate(x_list)]
-		
+		distances = [np.linalg.norm(input_result-dr_result) for dr_result in result]
+
 		# calculate ranking
 		dist_array = np.array(distances)
 		temp = dist_array.argsort()

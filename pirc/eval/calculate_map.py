@@ -75,8 +75,6 @@ def calculate_map(ground_truth, input_matrix):
 		else:
 			min_rank = rank_2
 			max_rank = rank_1
-		if cq == '4275.jpg':
-			print 'ranks for cq ' + cq + ': ' + str(min_rank) + ' and ' + str(max_rank)
 		contrib =  (1.0/min_rank + 2.0/max_rank)
 		p = p + contrib
 

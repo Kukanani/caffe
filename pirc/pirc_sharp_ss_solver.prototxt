@@ -1,0 +1,21 @@
+# The train/test net protocol buffer definition
+net: "pirc/pirc_sharp_ss_train_test.prototxt"
+# test_iter specifies how many forward passes the test should carry out.
+# 6000 pairs in the test set, the batch size is 100, so 60 iterations are needed to test all.
+test_iter: 60
+# Carry out testing every 500 training iterations.
+test_interval: 500
+# lr for fine-tuning should be lower than when starting from scratch
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.1
+# The learning rate policy
+stepsize: 20000
+display: 20
+max_iter: 100000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 10000
+snapshot_prefix: "pirc/sharp_ss/sharp_ss"
+# solver mode: CPU or GPU
+solver_mode: GPU

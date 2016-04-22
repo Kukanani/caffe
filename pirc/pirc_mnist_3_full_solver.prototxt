@@ -4,9 +4,9 @@ net: "pirc_mnist_3_full_train_test.prototxt"
 # 6000 pairs in the test set, the batch size is 100, so 60 iterations are needed to test all.
 test_iter: 60
 # Carry out testing every 500 training iterations.
-test_interval: 500
+test_interval: 1000
 # The base learning rate, momentum and the weight decay of the network.
-base_lr: 0.0000001
+base_lr: 0.00000001
 momentum: 0.9
 weight_decay: 0.0000
 # The learning rate policy
@@ -16,9 +16,9 @@ power: 0.75
 # Display every 100 iterations
 display: 100
 # The maximum number of iterations
-max_iter: 5000
+max_iter: 20000
 # snapshot intermediate results
-snapshot: 1000
+snapshot: 2000
 snapshot_prefix: "mnist_3_full/mnist_3_full"
 # solver mode: CPU or GPU
 solver_mode: GPU

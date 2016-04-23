@@ -8,14 +8,13 @@ import csv
 import operator
 # parse command line arguments or use defaults
 def parse_args():
-	if len(sys.argv) < 3:
-		print "Usage: calculate_map ground_truth_csv input_csv"
+	ground_truth_path = 'data/groundTruthTableN.csv'
+	if len(sys.argv) < 2:
+		print "Usage: calculate_map input_csv"
 		print "Arguments not specified correctly, continuing with default values."
-		ground_truth_path = 'groundTruthTest.csv'
 		input_path = 'mr1.csv'
 	else:
-		ground_truth_path = sys.argv[1]
-		input_path = sys.argv[2]
+		input_path = sys.argv[1]
 	return (ground_truth_path, input_path)
 
 # loads a "dense" matrix (list of row/columns that should have 1s) and turn them into a dict of lists -- the reference image matches for each consumer image.

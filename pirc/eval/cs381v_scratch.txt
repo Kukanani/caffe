@@ -78,3 +78,23 @@ The ground truth table is for 5000 objects.
 The input matrix is for 1500 objects.
 MAP is 0.015851881122
 ============================
+
+
+CaffeNet, SS and Full (combined), 10000 iterations
+
+the best precision was on image 3003.jpg, which had a score of 0.501808318264.
+following are the top 10 matches for this image.
+[('16252-0572-50_PART_1_OF_1_CHAL10_SB_DB1FEDBF.jpg', 1), ('50111-0441-01_PART_1_OF_1_CHAL10_SB_E02F706B.jpg', 2), ('47781-0307-01_PART_1_OF_1_CHAL10_SB_C41C6263.jpg', 3), ('50111-0441-01_PART_1_OF_1_CHAL10_SF_E02F706B.jpg', 4), ('60505-0065-01_PART_1_OF_1_CHAL10_SB_021D811C.jpg', 5), ('16110-0075-01_PART_1_OF_1_CHAL10_SB_D21FE93F.jpg', 6), ('00591-5694-01_PART_1_OF_1_CHAL10_SB_F90E7C93.jpg', 7), ('10144-0604-15_PART_1_OF_1_CHAL10_SB_F21DF94F.jpg', 8), ('60505-0065-00_PART_1_OF_1_CHAL10_SB_412920F9.jpg', 9), ('50111-0648-01_PART_1_OF_1_CHAL10_SB_6E303721.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 1500 objects.
+MAP is 0.0275351863269
+============================
+
+CaffeNet, SS and Full (combined), 10000 iterations + 1 round hard neg, 10000 iterations
+[('59148-0006-13_PART_1_OF_1_CHAL10_SF_97154BCA.jpg', 1), ('68180-0518-01_PART_1_OF_1_CHAL10_SB_070883B4.jpg', 2), ('00781-1487-01_PART_1_OF_1_CHAL10_SF_112408E0.jpg', 3), ('59148-0006-13_PART_1_OF_1_CHAL10_SB_97154BCA.jpg', 4), ('00781-1487-01_PART_1_OF_1_CHAL10_SB_112408E0.jpg', 5), ('59762-4960-01_PART_1_OF_1_CHAL10_SF_74213A59.jpg', 6), ('00781-5183-01_PART_1_OF_1_CHAL10_SF_7E23BF6D.jpg', 7), ('59762-4960-01_PART_1_OF_1_CHAL10_SB_74213A59.jpg', 8), ('00781-5183-01_PART_1_OF_1_CHAL10_SB_7E23BF6D.jpg', 9), ('55111-0197-30_PART_1_OF_1_CHAL10_SF_D7236B9B.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 1500 objects.
+MAP is 0.0286897578166
+============================

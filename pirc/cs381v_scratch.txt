@@ -81,6 +81,16 @@ MAP is 0.015851881122
 
 FULL, + 1 round hard neg, 20000 iterations
 
+the best precision was on image 473.jpg, which had a score of 0.502702702703.
+following are the top 10 matches for this image.
+[('63304-0693-01_PART_1_OF_1_CHAL10_SB_F7267BB3.jpg', 1), ('16252-0516-05_PART_1_OF_1_CHAL10_SB_D61FEB7F.jpg', 2), ('54092-0189-81_PART_1_OF_1_CHAL10_SB_381B9C6C.jpg', 3), ('16252-0516-05_PART_1_OF_1_CHAL10_SF_D61FEB7F.jpg', 4), ('50111-0901-01_PART_1_OF_1_CHAL10_SB_8B3245D2.jpg', 5), ('63459-0701-60_PART_1_OF_1_CHAL10_SB_602D3019.jpg', 6), ('62037-0640-30_PART_1_OF_1_CHAL10_SF_19268CC4.jpg', 7), ('47781-0307-01_PART_1_OF_1_CHAL10_SF_C41C6263.jpg', 8), ('65197-0002-01_PART_1_OF_1_CHAL10_SB_3315999C.jpg', 9), ('65580-0302-03_PART_1_OF_1_CHAL10_SF_04128254.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 1500 objects.
+MAP is 0.0156525194805
+============================
+
+
 #DC=20
 the best precision was on image 1950.jpg, which had a score of 0.416666666667.
 following are the top 10 matches for this image.

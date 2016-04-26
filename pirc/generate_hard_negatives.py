@@ -100,17 +100,17 @@ class GenHardNeg:
 if __name__ == "__main__":
     g = GenHardNeg()
 
-    if len(sys.argv) < 5:
-        #print 'Usage: calculate_map ground_truth_csv input_csv test1(reference)_tomodify test2(consumer)_tomodify'
+    ground_truth_csv_path = 'data/groundTruthTableN.csv'
+    if len(sys.argv) < 4:
+        print 'Usage: calculate_map input_csv test1(reference)_tomodify test2(consumer)_tomodify'
         print "Arguments not specified correctly, quitting."
         exit()
     else:
-        ground_truth_csv_path = sys.argv[1]
-        input_csv_path = sys.argv[2]
-        input_ref_path = sys.argv[3]
+        input_csv_path = sys.argv[1]
+        input_ref_path = sys.argv[2]
         ref_path_parts = os.path.splitext(input_ref_path)
         output_ref_path = ref_path_parts[0] + '_hardneg' + ref_path_parts[1]
-        input_cq_path = sys.argv[4]
+        input_cq_path = sys.argv[3]
         cq_path_parts = os.path.splitext(input_cq_path)
         output_cq_path = cq_path_parts[0] + '_hardneg' + cq_path_parts[1]
 

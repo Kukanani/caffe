@@ -57,7 +57,7 @@ MAP is 0.0167717786453
 ============================
 
 
-Mnist 3 full, 5000 iterations
+MNIST SIAMESE 3, FULL IMAGES, 20000 iterations
 
 the best precision was on image 683.jpg, which had a score of 0.259523809524.
 following are the top 10 matches for this image.
@@ -68,7 +68,7 @@ The input matrix is for 1500 objects.
 MAP is 0.0148293107025
 ============================
 
-Ss, 5000 iterations
+SS, 20000 iterations
 
 the best precision was on image 867.jpg, which had a score of 0.0857142857143.
 following are the top 10 matches for this image.
@@ -77,6 +77,48 @@ following are the top 10 matches for this image.
 The ground truth table is for 5000 objects.
 The input matrix is for 1500 objects.
 MAP is 0.015851881122
+============================
+
+FULL, + 1 round hard neg, 20000 iterations
+
+#DC=20
+the best precision was on image 1950.jpg, which had a score of 0.416666666667.
+following are the top 10 matches for this image.
+[('00603-2406-21_PART_1_OF_1_CHAL10_SB_92204932.jpg', 1), ('00591-5556-01_PART_1_OF_1_CHAL10_SF_0E21876C.jpg', 2), ('00591-5335-01_PART_1_OF_1_CHAL10_SF_501DA84D.jpg', 3), ('00591-5335-01_PART_1_OF_1_CHAL10_SB_501DA84D.jpg', 4), ('00591-5307-01_PART_1_OF_1_CHAL10_SF_B8215C7A.jpg', 5), ('00591-5307-01_PART_1_OF_1_CHAL10_SB_B8215C7A.jpg', 6), ('00603-2406-21_PART_1_OF_1_CHAL10_SF_92204932.jpg', 7), ('00597-0046-60_PART_1_OF_1_CHAL10_SB_C01DE05F.jpg', 8), ('00597-0044-37_PART_1_OF_1_CHAL10_SF_D116E8D7.jpg', 9), ('00591-5554-01_PART_1_OF_1_CHAL10_SB_E52172FB.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 50 objects.
+MAP is 0.262738158685
+============================
+
+#DC=50
+the best precision was on image 319.jpg, which had a score of 0.625.
+following are the top 10 matches for this image.
+[('00603-3741-21_PART_1_OF_1_CHAL10_SB_DD22EEE7.jpg', 1), ('00603-2545-21_PART_1_OF_1_CHAL10_SF_F223797B.jpg', 2), ('00597-0046-60_PART_1_OF_1_CHAL10_SF_C01DE05F.jpg', 3), ('00591-5788-01_PART_1_OF_1_CHAL10_SF_C51FE2DF.jpg', 4), ('00777-3105-02_PART_1_OF_1_CHAL10_SF_061C8364.jpg', 5), ('00591-5694-01_PART_1_OF_1_CHAL10_SB_F90E7C93.jpg', 6), ('00591-5556-01_PART_1_OF_1_CHAL10_SB_0E21876C.jpg', 7), ('00603-3741-21_PART_1_OF_1_CHAL10_SF_DD22EEE7.jpg', 8), ('00777-3105-02_PART_1_OF_1_CHAL10_SB_061C8364.jpg', 9), ('00591-5442-01_PART_1_OF_1_CHAL10_SF_BA205D42.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 125 objects.
+MAP is 0.136168356592
+============================
+
+#DC=100
+the best precision was on image 4889.jpg, which had a score of 0.416666666667.
+following are the top 10 matches for this image.
+[('10144-0602-15_PART_1_OF_1_CHAL10_SB_FA1DFD3F.jpg', 1), ('00781-2053-01_PART_1_OF_1_CHAL10_SF_521E2911.jpg', 2), ('00591-5554-01_PART_1_OF_1_CHAL10_SF_E52172FB.jpg', 3), ('00591-5554-01_PART_1_OF_1_CHAL10_SB_E52172FB.jpg', 4), ('00603-6148-21_PART_1_OF_1_CHAL10_SB_5126A8E5.jpg', 5), ('00603-6148-21_PART_1_OF_1_CHAL10_SF_5126A8E5.jpg', 6), ('00603-3079-21_PART_1_OF_1_CHAL10_SB_F4267A63.jpg', 7), ('00603-3079-21_PART_1_OF_1_CHAL10_SF_F4267A63.jpg', 8), ('00591-5307-01_PART_1_OF_1_CHAL10_SF_B8215C7A.jpg', 9), ('00603-6147-21_PART_1_OF_1_CHAL10_SF_212190CC.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 249 objects.
+MAP is 0.0767593153922
+============================
+
+#DC=200
+the best precision was on image 4889.jpg, which had a score of 0.266666666667.
+following are the top 10 matches for this image.
+[('50111-0326-01_PART_1_OF_1_CHAL10_SB_9C2F4E4A.jpg', 1), ('50111-0326-01_PART_1_OF_1_CHAL10_SF_9C2F4E4A.jpg', 2), ('10144-0602-15_PART_1_OF_1_CHAL10_SB_FA1DFD3F.jpg', 3), ('00781-2053-01_PART_1_OF_1_CHAL10_SF_521E2911.jpg', 4), ('00591-5554-01_PART_1_OF_1_CHAL10_SF_E52172FB.jpg', 5), ('00591-5554-01_PART_1_OF_1_CHAL10_SB_E52172FB.jpg', 6), ('50111-0325-01_PART_1_OF_1_CHAL10_SB_D32F69DB.jpg', 7), ('00603-6148-21_PART_1_OF_1_CHAL10_SB_5126A8E5.jpg', 8), ('41616-0759-83_PART_1_OF_1_CHAL10_SF_671DB3BD.jpg', 9), ('50111-0325-01_PART_1_OF_1_CHAL10_SF_D32F69DB.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 499 objects.
+MAP is 0.0440721973486
 ============================
 
 

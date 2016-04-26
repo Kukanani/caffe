@@ -19,6 +19,6 @@ display: 100
 max_iter: 20000
 # snapshot intermediate results
 snapshot: 2000
-snapshot_prefix: "mnist_3_ss/mnist_3_ss"
+snapshot_prefix: "mnist_3_ss/mnist_3_ss_hardneg"
 # solver mode: CPU or GPU
 solver_mode: GPU

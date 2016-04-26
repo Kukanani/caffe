@@ -31,7 +31,7 @@ output_path = sys.argv[3]
 input_file_path = sys.argv[5]
 list_file_path = sys.argv[4]
 
-MAX_IMGS = 700
+MAX_IMGS = 100
 
 # initialize input image array
 labels = []
@@ -97,8 +97,6 @@ colors = ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#0000ff',
 #	plt.plot(x_list, y_list, '.',c=colors[i])
 #	legend.append(str(i))
 
-x_list = [x for [x,y] in result]
-y_list = [y for [x,y] in result]
 #plt.plot(x_list, y_list, '.',c=colors[0])
 #legend.append('dr')
 
@@ -111,7 +109,7 @@ input_file = open(input_file_path, 'r')
 input_file_lines = input_file.read().splitlines()
 for i,input_item in enumerate(input_file_lines):
 	tokens = input_item.split(' ')
-	if tokens[1] == '1':
+	if len(tokens) == 0 or tokens[1] == '1':
 		if i%100 == 0:
 			print 'processing input image ' + str(i) + '/' + str(len(input_file_lines)) + ': '  + tokens[0]
 		img = misc.imread(tokens[0])

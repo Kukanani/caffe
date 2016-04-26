@@ -132,7 +132,7 @@ MAP is 0.0440721973486
 ============================
 
 
-CaffeNet, Full, 10000 iterations
+CaffeNet trained on Imagenet, Full, 10000 iterations
 
 robot@ubuntu14:~/caffe/pirc$ python eval/calculate_map.py sharp_full/output_20_10000.csv
 the best precision was on image 1950.jpg, which had a score of 0.75.
@@ -279,11 +279,14 @@ The input matrix is for 499 objects.
 MAP is 0.0540424885881
 ============================
 
+robot@ubuntu14:~/caffe/pirc$ python eval/calculate_map.py sharp_combined/output_hard_neg_1_10000.csv 
+The number of #1, 2, 3, 4, 5 pill matches is: [21.0, 7.0, 9.0, 10.0, 14.0]
+The best precision was on image 4503.jpg, which had a score of 0.75.
+following are the top 10 matches for this image.
 [('59148-0006-13_PART_1_OF_1_CHAL10_SF_97154BCA.jpg', 1), ('68180-0518-01_PART_1_OF_1_CHAL10_SB_070883B4.jpg', 2), ('00781-1487-01_PART_1_OF_1_CHAL10_SF_112408E0.jpg', 3), ('59148-0006-13_PART_1_OF_1_CHAL10_SB_97154BCA.jpg', 4), ('00781-1487-01_PART_1_OF_1_CHAL10_SB_112408E0.jpg', 5), ('59762-4960-01_PART_1_OF_1_CHAL10_SF_74213A59.jpg', 6), ('00781-5183-01_PART_1_OF_1_CHAL10_SF_7E23BF6D.jpg', 7), ('59762-4960-01_PART_1_OF_1_CHAL10_SB_74213A59.jpg', 8), ('00781-5183-01_PART_1_OF_1_CHAL10_SB_7E23BF6D.jpg', 9), ('55111-0197-30_PART_1_OF_1_CHAL10_SF_D7236B9B.jpg', 10)]
 ============================
 The ground truth table is for 5000 objects.
 The input matrix is for 1500 objects.
 MAP is 0.0286897578166
 ============================
-
 

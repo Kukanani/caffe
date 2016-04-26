@@ -9,7 +9,7 @@ layer {
   }
 
   image_data_param {
-    source: "data/train1_ss.txt"
+    source: "data/train1_ss_hardneg.txt"
     batch_size: 100
   }
 }
@@ -23,7 +23,7 @@ layer {
     phase: TRAIN
   }
   image_data_param {
-    source: "data/train2_ss.txt"
+    source: "data/train2_ss_hardneg.txt"
     batch_size: 100
   }
 }

@@ -73,4 +73,4 @@ for i,input_item in enumerate(input_file_lines):
 
 with open(output_path, 'w') as tsne_file:
 	for line in tsne_output:
-		tsne_file.write(' '.join([str(i) for i in [j for j in line]])+'\n')
+		tsne_file.write(','.join([str(i) for i in [j for j in line]])+'\n')

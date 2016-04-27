@@ -8,16 +8,16 @@ x = bsxfun(@rdivide, x, max(x));
 
 %% load validation image filenames
 
-fs = textread('/home/adam/caffe/pirc/data/small_test_sets/600_dc.txt', '%s');
+fs = textread('data/small_test_sets/600_dr_sorted.txt', '%s');
 N = length(fs);
 
 %% create an embedding image
 
 S = 2000; % size of full embedding image
 G = zeros(S, S, 3, 'uint8');
-s = 50; % size of every single image
+s = 150; % size of every single image
 
-Ntake = 1500;
+Ntake = 600;
 for i=1:Ntake
     
     if mod(i, 100)==0
@@ -44,7 +44,7 @@ end
 imshow(G);
 
 %%
-%imwrite(G, 'cnn_embed_2k.jpg', 'jpg');
+imwrite(G, 'comb_hardneg_10000_dr.png', 'png');
 
 %% average up images
 % % (doesnt look very good, failed experiment...)

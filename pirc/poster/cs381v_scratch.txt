@@ -1,60 +1,6 @@
-
-
 META========================================================
 Taking 100 images at random, 64% had text, 50% had discrinimative text
 Random MAP would be 1/1 * 1/2 * (1/1000 + 2/1000) = 0.0015.
-
-COMMANDS========================================================
-
-cd ../nih_pirc_siamese
-python test_nih_pirc_siamese.py nih_pirc_siamese_deploy.prototxt nih_pirc_siamese_iter_18000.caffemodel output.csv data/dc.txt data/dr1.txt data/dr2.txt
-cd ../nih_pirc_eval
-./calculate_map.py ../nih_pirc_siamese/data/groundTruthTableN.csv ../nih_pirc_siamese/output.csv
-
-RESULTS=========================================================
-
-MNIST SIAMESE 1, FULL IMAGES SQUASHED TO 227x227, 18k iterations
-The ground truth table is for 5000 objects.
-The input matrix is for 5000 objects.
-
-Iter:18000,MAP:0.00490075030954,data:all
-the best precision was on image 4275.jpg, which had a score of 0.50054377379.
-following are the top 10 matches for this image.
-[('00002-3228-30_PART_1_OF_1_CHAL10_SB_391E1C80.jpg', 1), ('00173-0595-00_PART_1_OF_1_CHAL10_SB_10230838.jpg', 2), ('00093-4404-01_PART_1_OF_1_CHAL10_SB_372D1BD8.jpg', 3), ('00781-5191-01_PART_1_OF_1_CHAL10_SB_CD20E6B7.jpg', 4), ('00093-0536-01_PART_1_OF_1_CHAL10_SB_992B4CEA.jpg', 5), ('00555-0139-09_PART_1_OF_1_CHAL10_SB_EE2B774B.jpg', 6), ('00591-3202-01_PART_1_OF_1_CHAL10_SF_C11FE0FF.jpg', 7), ('00093-2274-34_PART_1_OF_1_CHAL10_SF_022D814C.jpg', 8), ('00093-7327-01_PART_1_OF_1_CHAL10_SF_B02D580A.jpg', 9), ('53489-0146-01_PART_1_OF_1_CHAL10_SF_8021C06E.jpg', 10)]
-
-Iter:10000,MAP:0.00473318952768,data:all
-the best precision was on image 4275.jpg, which had a score of 0.500545553737.
-following are the top 10 matches for this image.
-[('00002-3228-30_PART_1_OF_1_CHAL10_SB_391E1C80.jpg', 1), ('00173-0595-00_PART_1_OF_1_CHAL10_SB_10230838.jpg', 2), ('00074-3290-13_PART_1_OF_1_CHAL10_SF_EC1D766B.jpg', 3), ('00378-0505-01_PART_1_OF_1_CHAL10_SF_652332F9.jpg', 4), ('00781-5191-01_PART_1_OF_1_CHAL10_SB_CD20E6B7.jpg', 5), ('00093-4404-01_PART_1_OF_1_CHAL10_SB_372D1BD8.jpg', 6), ('67767-0133-60_PART_1_OF_1_CHAL10_SF_26269354.jpg', 7), ('00172-5032-60_PART_1_OF_1_CHAL10_SF_002D0078.jpg', 8), ('00093-7327-01_PART_1_OF_1_CHAL10_SF_B02D580A.jpg', 9), ('53489-0146-01_PART_1_OF_1_CHAL10_SF_8021C06E.jpg', 10)]
-
-
-
-Iter:18000,MAP:0.00465298036852,data:test set only
-the best precision was on image 3598.jpg, which had a score of 0.535714285714.
-following are the top 10 matches for this image.
-[('00002-3228-30_PART_1_OF_1_CHAL10_SB_391E1C80.jpg', 1), ('00173-0595-00_PART_1_OF_1_CHAL10_SB_10230838.jpg', 2), ('00093-5768-56_PART_1_OF_1_CHAL10_SB_7A1C3D41.jpg', 3), ('50111-0397-01_PART_1_OF_1_CHAL10_SF_30269804.jpg', 4), ('00093-3109-53_PART_1_OF_1_CHAL10_SB_C819644B.jpg', 5), ('00591-5788-01_PART_1_OF_1_CHAL10_SB_C51FE2DF.jpg', 6), ('00093-7466-98_PART_1_OF_1_CHAL10_SB_A51DD2AE.jpg', 7), ('59762-5021-01_PART_1_OF_1_CHAL10_SB_19230CB8.jpg', 8), ('59762-2004-01_PART_1_OF_1_CHAL10_SB_E61DF31F.jpg', 9), ('00093-7426-56_PART_1_OF_1_CHAL10_SB_DC27EE6F.jpg', 10)]
-
-
-MNIST SIAMESE 2, FULL IMAGES to 227x227
-
-[('00591-5442-01_PART_1_OF_1_CHAL10_SF_BA205D42.jpg', 1), ('50458-0579-30_PART_1_OF_1_CHAL10_SF_8F1DC7FE.jpg', 2), ('59762-2002-01_PART_1_OF_1_CHAL10_SF_E81DF46F.jpg', 3), ('65580-0304-03_PART_1_OF_1_CHAL10_SF_011280A4.jpg', 4), ('59762-2004-01_PART_1_OF_1_CHAL10_SB_E61DF31F.jpg', 5), ('50111-0563-01_PART_1_OF_1_CHAL10_SF_4B3025E1.jpg', 6), ('60505-0065-00_PART_1_OF_1_CHAL10_SB_412920F9.jpg', 7), ('00603-6148-21_PART_1_OF_1_CHAL10_SF_5126A8E5.jpg', 8), ('50111-0648-01_PART_1_OF_1_CHAL10_SF_6E303721.jpg', 9), ('59762-2003-01_PART_1_OF_1_CHAL10_SF_EC1DF61F.jpg', 10)]
-============================
-The ground truth table is for 5000 objects.
-The input matrix is for 1500 objects.
-MAP is 0.0149319229455
-============================
-
-MNIST SIAMESE 2, SELECTIVE IMAGES TO 227x227
-
-Iter:20000,MAP:0.0167717786453,data: test set only
-the best precision was on image 2955.jpg, which had a score of 0.416666666667.
-following are the top 10 matches for this image.
-[('00591-5442-01_PART_1_OF_1_CHAL10_SF_BA205D42.jpg', 1), ('00781-5191-01_PART_1_OF_1_CHAL10_SB_CD20E6B7.jpg', 2), ('51285-0063-90_PART_2_OF_2_CHAL10_SB_732D39A9.jpg', 3), ('51285-0063-90_PART_2_OF_2_CHAL10_SF_732D39A9.jpg', 4), ('49884-0403-91_PART_1_OF_1_CHAL10_SF_3E1C9F54.jpg', 5), ('51248-0151-03_PART_1_OF_1_CHAL10_SF_5A1DAD5D.jpg', 6), ('59762-1301-01_PART_1_OF_1_CHAL10_SB_292114A8.jpg', 7), ('65862-0156-30_PART_1_OF_1_CHAL10_SF_1E238F6C.jpg', 8), ('68453-0375-10_PART_1_OF_1_CHAL10_SF_14200A30.jpg', 9), ('68462-0360-01_PART_1_OF_1_CHAL10_SF_06230358.jpg', 10)]
-============================
-The ground truth table is for 5000 objects.
-The input matrix is for 1500 objects.
-MAP is 0.0167717786453
-============================
 
 
 MNIST SIAMESE 3, FULL IMAGES, 20000 iterations
@@ -68,28 +14,13 @@ The input matrix is for 1500 objects.
 MAP is 0.0148293107025
 ============================
 
-SS, 20000 iterations
 
-the best precision was on image 867.jpg, which had a score of 0.0857142857143.
-following are the top 10 matches for this image.
-[('00591-5442-01_PART_1_OF_1_CHAL10_SF_BA205D42.jpg', 1), ('00603-3856-21_PART_1_OF_1_CHAL10_SB_AC265632.jpg', 2), ('63459-0215-30_PART_1_OF_1_CHAL10_SF_D11C6893.jpg', 3), ('50111-0441-01_PART_1_OF_1_CHAL10_SB_E02F706B.jpg', 4), ('50458-0551-01_PART_1_OF_1_CHAL10_SB_0F1607A0.jpg', 5), ('63459-0215-30_PART_1_OF_1_CHAL10_SB_D11C6893.jpg', 6), ('50111-0469-01_PART_1_OF_1_CHAL10_SF_46302371.jpg', 7), ('59762-2858-01_PART_1_OF_1_CHAL10_SF_00200070.jpg', 8), ('51672-4030-01_PART_1_OF_1_CHAL10_SB_D12668F3.jpg', 9), ('51285-0083-70_PART_1_OF_2_CHAL10_SF_2E2F970C.jpg', 10)]
-============================
-The ground truth table is for 5000 objects.
-The input matrix is for 1500 objects.
-MAP is 0.015851881122
-============================
+
+
+
+
 
 FULL, + 1 round hard neg, 20000 iterations
-
-the best precision was on image 473.jpg, which had a score of 0.502702702703.
-following are the top 10 matches for this image.
-[('63304-0693-01_PART_1_OF_1_CHAL10_SB_F7267BB3.jpg', 1), ('16252-0516-05_PART_1_OF_1_CHAL10_SB_D61FEB7F.jpg', 2), ('54092-0189-81_PART_1_OF_1_CHAL10_SB_381B9C6C.jpg', 3), ('16252-0516-05_PART_1_OF_1_CHAL10_SF_D61FEB7F.jpg', 4), ('50111-0901-01_PART_1_OF_1_CHAL10_SB_8B3245D2.jpg', 5), ('63459-0701-60_PART_1_OF_1_CHAL10_SB_602D3019.jpg', 6), ('62037-0640-30_PART_1_OF_1_CHAL10_SF_19268CC4.jpg', 7), ('47781-0307-01_PART_1_OF_1_CHAL10_SF_C41C6263.jpg', 8), ('65197-0002-01_PART_1_OF_1_CHAL10_SB_3315999C.jpg', 9), ('65580-0302-03_PART_1_OF_1_CHAL10_SF_04128254.jpg', 10)]
-============================
-The ground truth table is for 5000 objects.
-The input matrix is for 1500 objects.
-MAP is 0.0156525194805
-============================
-
 
 #DC=20
 the best precision was on image 1950.jpg, which had a score of 0.416666666667.
@@ -130,6 +61,137 @@ The ground truth table is for 5000 objects.
 The input matrix is for 499 objects.
 MAP is 0.0440721973486
 ============================
+
+#DC=600
+
+the best precision was on image 473.jpg, which had a score of 0.502702702703.
+following are the top 10 matches for this image.
+[('63304-0693-01_PART_1_OF_1_CHAL10_SB_F7267BB3.jpg', 1), ('16252-0516-05_PART_1_OF_1_CHAL10_SB_D61FEB7F.jpg', 2), ('54092-0189-81_PART_1_OF_1_CHAL10_SB_381B9C6C.jpg', 3), ('16252-0516-05_PART_1_OF_1_CHAL10_SF_D61FEB7F.jpg', 4), ('50111-0901-01_PART_1_OF_1_CHAL10_SB_8B3245D2.jpg', 5), ('63459-0701-60_PART_1_OF_1_CHAL10_SB_602D3019.jpg', 6), ('62037-0640-30_PART_1_OF_1_CHAL10_SF_19268CC4.jpg', 7), ('47781-0307-01_PART_1_OF_1_CHAL10_SF_C41C6263.jpg', 8), ('65197-0002-01_PART_1_OF_1_CHAL10_SB_3315999C.jpg', 9), ('65580-0302-03_PART_1_OF_1_CHAL10_SF_04128254.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 1500 objects.
+MAP is 0.0156525194805
+============================
+
+
+
+
+
+
+
+MNIST SIAMESE SS, 20000 ITERATIONS, ON SS
+
+#class=20
+c222-502.maverick(46)$ python eval/calculate_map.py mnist_3_ss/output_20_20000.csv 
+the best precision was on image 2583.jpg, which had a score of 0.7.
+following are the top 10 matches for this image.
+[('00591-5556-01_PART_1_OF_1_CHAL10_SF_0E21876C.jpg', 1), ('00597-0046-60_PART_1_OF_1_CHAL10_SF_C01DE05F.jpg', 2), ('00591-5554-01_PART_1_OF_1_CHAL10_SF_E52172FB.jpg', 3), ('00591-5554-01_PART_1_OF_1_CHAL10_SB_E52172FB.jpg', 4), ('00591-5556-01_PART_1_OF_1_CHAL10_SB_0E21876C.jpg', 5), ('00591-5307-01_PART_1_OF_1_CHAL10_SB_B8215C7A.jpg', 6), ('00591-5442-01_PART_1_OF_1_CHAL10_SB_BA205D42.jpg', 7), ('00597-0044-37_PART_1_OF_1_CHAL10_SB_D116E8D7.jpg', 8), ('00603-2406-21_PART_1_OF_1_CHAL10_SF_92204932.jpg', 9), ('00591-5335-01_PART_1_OF_1_CHAL10_SB_501DA84D.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 50 objects.
+MAP is 0.220188073279
+============================
+
+#class=50
+the best precision was on image 2217.jpg, which had a score of 0.0822580645161.
+following are the top 10 matches for this image.
+[('00603-3741-21_PART_1_OF_1_CHAL10_SF_DD22EEE7.jpg', 1), ('00603-6148-21_PART_1_OF_1_CHAL10_SF_5126A8E5.jpg', 2), ('00781-1191-01_PART_1_OF_1_CHAL10_SB_F920FCA7.jpg', 3), ('00591-5442-01_PART_1_OF_1_CHAL10_SF_BA205D42.jpg', 4), ('00781-1191-01_PART_1_OF_1_CHAL10_SF_F920FCA7.jpg', 5), ('00603-6147-21_PART_1_OF_1_CHAL10_SF_212190CC.jpg', 6), ('00603-5165-32_PART_1_OF_1_CHAL10_SB_2F1B97BC.jpg', 7), ('00591-5307-01_PART_1_OF_1_CHAL10_SF_B8215C7A.jpg', 8), ('00603-3079-21_PART_1_OF_1_CHAL10_SF_F4267A63.jpg', 9), ('00603-5771-21_PART_1_OF_1_CHAL10_SF_38231C78.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 125 objects.
+MAP is 0.108327718921
+============================
+
+#class=100
+c222-502.maverick(47)$ python eval/calculate_map.py mnist_3_ss/output_100_20000.csv 
+the best precision was on image 931.jpg, which had a score of 0.155555555556.
+following are the top 10 matches for this image.
+[('00781-2020-05_PART_1_OF_1_CHAL10_SB_D812EC47.jpg', 1), ('00781-5046-01_PART_1_OF_1_CHAL10_SB_F223F92F.jpg', 2), ('00781-5191-01_PART_1_OF_1_CHAL10_SB_CD20E6B7.jpg', 3), ('00781-1787-01_PART_1_OF_1_CHAL10_SB_BA235D2A.jpg', 4), ('00597-0044-37_PART_1_OF_1_CHAL10_SB_D116E8D7.jpg', 5), ('00781-5184-01_PART_1_OF_1_CHAL10_SB_6E21B76D.jpg', 6), ('00603-3856-21_PART_1_OF_1_CHAL10_SB_AC265632.jpg', 7), ('00603-2545-21_PART_1_OF_1_CHAL10_SB_F223797B.jpg', 8), ('00781-1966-01_PART_1_OF_1_CHAL10_SB_B5265AE2.jpg', 9), ('00781-1966-01_PART_1_OF_1_CHAL10_SF_B5265AE2.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 249 objects.
+MAP is 0.0528900830614
+============================
+
+#class=200
+c222-502.maverick(49)$ python eval/calculate_map.py mnist_3_ss/output_200_20000.csv
+the best precision was on image 3003.jpg, which had a score of 0.833333333333.
+following are the top 10 matches for this image.
+[('16252-0572-50_PART_1_OF_1_CHAL10_SF_DB1FEDBF.jpg', 1), ('10144-0604-15_PART_1_OF_1_CHAL10_SF_F21DF94F.jpg', 2), ('16252-0572-50_PART_1_OF_1_CHAL10_SB_DB1FEDBF.jpg', 3), ('13811-0583-30_PART_1_OF_1_CHAL10_SF_911DC8BE.jpg', 4), ('00591-5694-01_PART_1_OF_1_CHAL10_SF_F90E7C93.jpg', 5), ('00781-5188-01_PART_1_OF_1_CHAL10_SF_D020E837.jpg', 6), ('00777-3105-02_PART_1_OF_1_CHAL10_SF_061C8364.jpg', 7), ('31722-0278-10_PART_1_OF_1_CHAL10_SB_241D925C.jpg', 8), ('16729-0042-01_PART_1_OF_1_CHAL10_SF_4C1E2611.jpg', 9), ('13811-0583-30_PART_1_OF_1_CHAL10_SB_911DC8BE.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 499 objects.
+MAP is 0.0361030907921
+============================
+
+#class=600
+c222-502.maverick(66)$ python eval/calculate_map.py mnist_3_ss/output_600_20000.csv
+the best precision was on image 3003.jpg, which had a score of 0.666666666667.
+following are the top 10 matches for this image.
+[('16252-0572-50_PART_1_OF_1_CHAL10_SF_DB1FEDBF.jpg', 1), ('10144-0604-15_PART_1_OF_1_CHAL10_SF_F21DF94F.jpg', 2), ('50111-0441-01_PART_1_OF_1_CHAL10_SF_E02F706B.jpg', 3), ('51285-0083-70_PART_1_OF_2_CHAL10_SF_2E2F970C.jpg', 4), ('67877-0147-01_PART_1_OF_1_CHAL10_SF_D61DEB0F.jpg', 5), ('16252-0572-50_PART_1_OF_1_CHAL10_SB_DB1FEDBF.jpg', 6), ('50111-0851-01_PART_1_OF_1_CHAL10_SF_873243C2.jpg', 7), ('50111-0901-01_PART_1_OF_1_CHAL10_SB_8B3245D2.jpg', 8), ('51285-0063-90_PART_1_OF_2_CHAL10_SB_6F2D3799.jpg', 9), ('51285-0083-70_PART_2_OF_2_CHAL10_SF_322F991C.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 1500 objects.
+MAP is 0.0161381360361
+============================
+
+
+MNIST SIAMESE SS, 20000 ITERATIONS, ON SS, + HARD NEG, 20000 ITERATIONS
+
+c222-701.maverick(5)$ python eval/calculate_map.py mnist_3_ss/output_hardneg_20_20000.csv 
+the best precision was on image 1478.jpg, which had a score of 0.611111111111.
+following are the top 10 matches for this image.
+[('00597-0046-60_PART_1_OF_1_CHAL10_SF_C01DE05F.jpg', 1), ('00591-5335-01_PART_1_OF_1_CHAL10_SF_501DA84D.jpg', 2), ('00591-5694-01_PART_1_OF_1_CHAL10_SB_F90E7C93.jpg', 3), ('00597-0044-37_PART_1_OF_1_CHAL10_SF_D116E8D7.jpg', 4), ('00591-5307-01_PART_1_OF_1_CHAL10_SB_B8215C7A.jpg', 5), ('00591-5335-01_PART_1_OF_1_CHAL10_SB_501DA84D.jpg', 6), ('00603-2406-21_PART_1_OF_1_CHAL10_SF_92204932.jpg', 7), ('00591-5556-01_PART_1_OF_1_CHAL10_SB_0E21876C.jpg', 8), ('00597-0046-60_PART_1_OF_1_CHAL10_SB_C01DE05F.jpg', 9), ('00591-5554-01_PART_1_OF_1_CHAL10_SF_E52172FB.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 50 objects.
+MAP is 0.227911348327
+============================
+
+c222-701.maverick(6)$ python eval/calculate_map.py mnist_3_ss/output_hardneg_50_20000.csv 
+the best precision was on image 1040.jpg, which had a score of 0.7.
+following are the top 10 matches for this image.
+[('00781-1452-01_PART_1_OF_1_CHAL10_SF_D720EBF7.jpg', 1), ('00591-5556-01_PART_1_OF_1_CHAL10_SB_0E21876C.jpg', 2), ('00591-5554-01_PART_1_OF_1_CHAL10_SF_E52172FB.jpg', 3), ('00781-1191-01_PART_1_OF_1_CHAL10_SB_F920FCA7.jpg', 4), ('00781-1452-01_PART_1_OF_1_CHAL10_SB_D720EBF7.jpg', 5), ('00591-5307-01_PART_1_OF_1_CHAL10_SB_B8215C7A.jpg', 6), ('00603-3079-21_PART_1_OF_1_CHAL10_SF_F4267A63.jpg', 7), ('00603-3079-21_PART_1_OF_1_CHAL10_SB_F4267A63.jpg', 8), ('00781-1146-01_PART_1_OF_1_CHAL10_SB_F422FA27.jpg', 9), ('00603-6148-21_PART_1_OF_1_CHAL10_SF_5126A8E5.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 125 objects.
+MAP is 0.101850233509
+============================
+
+c222-701.maverick(7)$ python eval/calculate_map.py mnist_3_ss/output_hardneg_100_20000.csv 
+the best precision was on image 1177.jpg, which had a score of 0.197916666667.
+following are the top 10 matches for this image.
+[('00591-5554-01_PART_1_OF_1_CHAL10_SB_E52172FB.jpg', 1), ('00781-1487-01_PART_1_OF_1_CHAL10_SF_112408E0.jpg', 2), ('00781-5183-01_PART_1_OF_1_CHAL10_SB_7E23BF6D.jpg', 3), ('00781-5191-01_PART_1_OF_1_CHAL10_SF_CD20E6B7.jpg', 4), ('00781-5189-01_PART_1_OF_1_CHAL10_SB_7523BAED.jpg', 5), ('00603-5165-32_PART_1_OF_1_CHAL10_SB_2F1B97BC.jpg', 6), ('00832-1080-00_PART_1_OF_1_CHAL10_SB_C0266053.jpg', 7), ('00832-1080-00_PART_1_OF_1_CHAL10_SF_C0266053.jpg', 8), ('00603-3741-21_PART_1_OF_1_CHAL10_SB_DD22EEE7.jpg', 9), ('00781-1486-01_PART_1_OF_1_CHAL10_SB_16240B50.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 249 objects.
+MAP is 0.0652178756994
+============================
+
+c222-701.maverick(8)$ python eval/calculate_map.py mnist_3_ss/output_hardneg_200_20000.csv 
+the best precision was on image 716.jpg, which had a score of 0.507352941176.
+following are the top 10 matches for this image.
+[('00781-5187-01_PART_1_OF_1_CHAL10_SB_34239A1C.jpg', 1), ('15456-0980-04_PART_1_OF_1_CHAL10_SF_9418CA26.jpg', 2), ('00591-5554-01_PART_1_OF_1_CHAL10_SB_E52172FB.jpg', 3), ('10144-0606-15_PART_1_OF_1_CHAL10_SB_FA1DFD0F.jpg', 4), ('50111-0397-01_PART_1_OF_1_CHAL10_SF_30269804.jpg', 5), ('50111-0327-01_PART_1_OF_1_CHAL10_SB_253012F0.jpg', 6), ('43386-0660-24_PART_1_OF_1_CHAL10_SB_D91DECBF.jpg', 7), ('47335-0580-81_PART_1_OF_1_CHAL10_SF_7212B945.jpg', 8), ('49884-0544-01_PART_1_OF_1_CHAL10_SF_1C218E5C.jpg', 9), ('00781-1487-01_PART_1_OF_1_CHAL10_SF_112408E0.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 499 objects.
+MAP is 0.0387029152185
+============================
+
+c222-701.maverick(17)$ python eval/calculate_map.py mnist_3_ss/output_hardneg_600_20000.csv 
+the best precision was on image 351.jpg, which had a score of 0.501686340641.
+following are the top 10 matches for this image.
+[('51285-0538-02_PART_1_OF_1_CHAL10_SB_9F304FB2.jpg', 1), ('50111-0647-01_PART_1_OF_1_CHAL10_SF_893044A2.jpg', 2), ('50111-0901-01_PART_1_OF_1_CHAL10_SF_8B3245D2.jpg', 3), ('50111-0563-01_PART_1_OF_1_CHAL10_SB_4B3025E1.jpg', 4), ('00781-5187-01_PART_1_OF_1_CHAL10_SB_34239A1C.jpg', 5), ('65197-0002-01_PART_1_OF_1_CHAL10_SB_3315999C.jpg', 6), ('50111-0648-01_PART_1_OF_1_CHAL10_SB_6E303721.jpg', 7), ('51672-4016-01_PART_1_OF_1_CHAL10_SF_09268484.jpg', 8), ('15456-0980-04_PART_1_OF_1_CHAL10_SF_9418CA26.jpg', 9), ('60505-0065-00_PART_1_OF_1_CHAL10_SF_412920F9.jpg', 10)]
+============================
+The ground truth table is for 5000 objects.
+The input matrix is for 1500 objects.
+MAP is 0.0174703278529
+============================
+
+
+
+
+
 
 
 CaffeNet trained on Imagenet, Full, 10000 iterations

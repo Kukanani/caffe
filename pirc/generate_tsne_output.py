@@ -23,13 +23,12 @@ import csv
 import copy
 # check command line arguments=
 if len(sys.argv) < 4:
-	print 'usage is test_pirc_siamese.py model weights.caffemodel output.csv path_to_file_with_reference_image_paths path_to_file_with_input_image_paths'
+	print 'usage is test_pirc_siamese.py model weights.caffemodel output.csv path_to_file_with_input_image_paths'
 
 model = sys.argv[1]
 pretrained = sys.argv[2]
 output_path = sys.argv[3]
-input_file_path = sys.argv[5]
-list_file_path = sys.argv[4]
+input_file_path = sys.argv[4]
 
 MAX_IMGS = 100
 
@@ -44,61 +43,6 @@ net = caffe.Net(model, pretrained, caffe.TEST)
 
 transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})
 transformer.set_transpose('data', (2,1,0))
-
-input_img_names = []
-print 'processing reference file ' + list_file_path
-# read the image paths from the file
-list_file = open(list_file_path, 'r')
-list_file_lines = list_file.read().splitlines()
-
-img_index = 0
-while img_index < len(list_file_lines):
-	img_count = 0
-	input_imgs = []
-	while img_count < MAX_IMGS and img_index < len(list_file_lines):
-		line = list_file_lines[img_index]
-        	
-		# put all the images into a single input array which will then be passed
-		# through the network all at once. N images will be stored in an array
-		# of size N x 3 x 227 x 227. This is N images with 3 channels (RGB) that
-		# are 227x227 pixels
-        	tokens = line.split(' ')
-		if tokens[1] == '1' and tokens[0] not in input_img_names:
-			img_count = img_count + 1
-			input_img_names.append(tokens[0])
-			img = misc.imread(tokens[0])
-			img = misc.imresize(img, (227, 227))
-			input_imgs.append(img)
-			#labels.append(int(tokens[1]))
-			rank_matrix[0].append(tokens[0].split('/')[-1])
-		img_index = img_index + 1
-	if len(input_imgs) > 0:	
-		input_data = []
-		for i in range(len(input_imgs)):
-			input_data.append(transformer.preprocess('data', input_imgs[i]))
-		
-		print 'found {} reference images'.format(len(input_imgs))
-		input_data_np = np.array(input_data)
-		net.blobs['data'].reshape(len(input_imgs), 3, 227, 227)
-		net.reshape()
-		net.blobs['data'].data[...] = input_data_np
-		output = net.forward()
-		result.extend(copy.deepcopy(output['feat']))
-		#f = plt.figure(figsize=(16,9))
-
-legend = []
-colors = ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', 
-     '#ff00ff', '#990000', '#999900', '#009900', '#009999']
-#for i in range(2):
-#	good = [a for ix,a in enumerate(feat) if labels[ix]==i]
-#	print str(good)
-#	x_list = [x for [x,y] in good]
-#	y_list = [y for [x,y] in good]
-#	plt.plot(x_list, y_list, '.',c=colors[i])
-#	legend.append(str(i))
-
-#plt.plot(x_list, y_list, '.',c=colors[0])
-#legend.append('dr')
 
 net.blobs['data'].reshape(1, 3, 227, 227)
 net.reshape()
@@ -127,13 +71,6 @@ for i,input_item in enumerate(input_file_lines):
 
 		tsne_output.append(copy.deepcopy(input_result))
 
-		#plt.plot(x_list_single, y_list_single, '.',c=colors[1])
-		#legend.append('36.jpg')
-	
-		#plt.legend(legend)
-		#plt.grid()
-
-		# find the distances
-with open('tsne.txt', 'w') as tsne_file:
+with open(output_path, 'w') as tsne_file:
 	for line in tsne_output:
 		tsne_file.write(' '.join([str(i) for i in [j for j in line]])+'\n')
